@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
         format.html { redirect_to user_messages_path, notice: "Message was successfully created." }
         format.json { render :show, status: :created, location: @message }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to user_messages_path, notice: "Message can not be blank."}
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
