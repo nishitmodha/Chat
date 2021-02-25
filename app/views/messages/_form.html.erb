@@ -1,0 +1,15 @@
+<%= form_with(path: user_messages_path, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id, value: params[:user] %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
