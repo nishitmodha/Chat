@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+.chat-table {
+  height: 70vh;
+  overflow: scroll;
+}
+
+.chat-box {
+  margin-bottom: 15px;
+}
+
+.chat-user-name {
+  font-size: smaller;
+}
+
+.chat-message {
+  font-size: larger;
+}
