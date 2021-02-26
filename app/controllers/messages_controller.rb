@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.includes(:user).all
     @message = Message.new(message_params)
   end
 
@@ -23,14 +23,9 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
 
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to user_messages_path, notice: "Message was successfully created." }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { redirect_to user_messages_path, notice: "Message can not be blank."}
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+    if @message.save
+      ActionCable.server.broadcast 'room_channel', content: @message.content, user_name: @message.user.name
+      # head :ok
     end
   end
 
