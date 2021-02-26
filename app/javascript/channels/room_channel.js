@@ -10,6 +10,8 @@ consumer.subscriptions.create("RoomChannel", {
   },
 
   received(data) {
+    $('#chat-list').append("<tr><td>" + data.content + "</td><td>" + data.user_name + "</td></tr>");
+    $('#content').val('');
     // Called when there's incoming data on the websocket for this channel
   }
 });
