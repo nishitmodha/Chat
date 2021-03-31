@@ -1,24 +1,34 @@
-# README
+# Chat Application
+The web application to chat with users across the globe. It has been implemented in Ruby on Rails using Action Cables.
+Multiple Users can chat with each others in the same room.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
+This repository holds the build code to build the Chat Web Application. The instructions to the repository are mentioned below.
 
-Things you may want to cover:
+## Clone and Initialize the repo
+To initialize the project, have [ruby-2.6.6](https://www.ruby-lang.org/en/news/2020/03/31/ruby-2-6-6-released/) installed.
 
-* Ruby version
+To clone and setup the project
+```bash
+git clone git@github.com:nishitmodha/Chat.git
+cd Chat
 
-* System dependencies
+# this will take few minutes to install dependencies
+bundle install
 
-* Configuration
+# if prompted then do run below command,
+# which is used to verify already installed files in
+# node_modules did not get removed
+yarn install --check-files
 
-* Database creation
+# then perform the migration
+rails db:migrate
+```
 
-* Database initialization
+To start the rails server in the localhost
+```bash
+rails s
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Deployed Application
+The application is deployed [here](https://rails-chat-ac.herokuapp.com/).
